@@ -37,7 +37,7 @@ public class OrdersRepository : BaseRepository, IOrdersRepository
 
     public async Task<List<Order>> GetList()
     {
-        var query = $@"SELECT * FROM {TableNames.order}";
+        var query = $@"SELECT * FROM ""{TableNames.order}""";
 
         using (var con = NewConnection)
 
@@ -47,7 +47,7 @@ public class OrdersRepository : BaseRepository, IOrdersRepository
 
     public async Task<Order> GetById(long OrderId)
     {
-        var query = $@"SELECT * FROM {TableNames.order} 
+        var query = $@"SELECT * FROM ""{TableNames.order}"" 
         WHERE order_id = @OrderId";
 
         using (var con = NewConnection)
@@ -55,7 +55,7 @@ public class OrdersRepository : BaseRepository, IOrdersRepository
     }
     public async Task Update(Order Item)
     {
-        var query = $@"UPDATE {TableNames.order} SET order_status = @OrderStatus";
+        var query = $@"UPDATE ""{TableNames.order}"" SET order_status = @OrderStatus";
 
 
         using (var con = NewConnection)
@@ -64,7 +64,7 @@ public class OrdersRepository : BaseRepository, IOrdersRepository
 
     public async Task<List<Order>> GetListByCustomerId(long CustomerId)
     {
-        var query = $@"SELECT * FROM {TableNames.order}  WHERE customer_id = @CustomerId";
+        var query = $@"SELECT * FROM ""{TableNames.order}""  WHERE customer_id = @CustomerId";
 
 
 
